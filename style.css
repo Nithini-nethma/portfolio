@@ -79,9 +79,12 @@ nav {
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--white);
+    font-size: 22px;
+    font-weight: bold;
+    color: var(--cyan);
+    margin-right: 30px;
+    letter-spacing: 1px;
+
 }
 
 .logo span {
@@ -767,3 +770,4 @@ footer {
     }
 
 } 
+
