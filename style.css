@@ -1,3 +1,4 @@
+/* ======= Variables ======= */
 :root {
     --dark-blue: #0A1F44;
     --cyan: #00FFFF;
@@ -8,12 +9,14 @@
     --dark-gray: #333333;
 }
 
+/* ======= Reset ======= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* ======= Body & Typography ======= */
 body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--dark-blue);
@@ -22,10 +25,7 @@ body {
     overflow-x: hidden;
 }
 
-h1,
-h2,
-h3,
-h4 {
+h1, h2, h3, h4 {
     font-family: 'Lato', sans-serif;
     font-weight: 700;
     margin-bottom: 20px;
@@ -60,7 +60,7 @@ section {
     border-radius: 2px;
 }
 
-/* Header & Navigation */
+/* ======= Header & Navigation ======= */
 header {
     position: fixed;
     top: 0;
@@ -84,7 +84,6 @@ nav {
     color: var(--cyan);
     margin-right: 30px;
     letter-spacing: 1px;
-
 }
 
 .logo span {
@@ -117,7 +116,7 @@ nav {
     cursor: pointer;
 }
 
-/* Hero Section */
+/* ======= Hero Section ======= */
 .hero {
     height: 100vh;
     display: flex;
@@ -158,8 +157,6 @@ nav {
     animation-delay: 0.3s;
 }
 
-
-
 .hero-image {
     flex: 1;
     text-align: center;
@@ -167,8 +164,6 @@ nav {
     transform: scale(0.8) rotate(-15deg);
     animation: zoomIn 1.5s ease forwards;
     animation-delay: 1.2s;
-
-
 }
 
 .hero-image.animated {
@@ -184,92 +179,58 @@ nav {
     border: 5px solid var(--cyan);
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
     transition: transform 0.5s ease, box-shadow 0.5s ease;
-
-}
-
-@keyframes shake {
-    0% {
-        transform: translateX(0);
-    }
-
-    20% {
-        transform: translateX(-10px);
-    }
-
-    40% {
-        transform: translateX(10px);
-    }
-
-    60% {
-        transform: translateX(-10px);
-    }
-
-    80% {
-        transform: translateX(10px);
-    }
-
-    100% {
-        transform: translateX(0);
-    }
 }
 
 .profile-img.shake {
     animation: shake 0.5s;
 }
 
+@keyframes shake {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-10px); }
+    40% { transform: translateX(10px); }
+    60% { transform: translateX(-10px); }
+    80% { transform: translateX(10px); }
+    100% { transform: translateX(0); }
+}
+
 .hero-text h1 {
     font-size: 48px;
     margin-bottom: 10px;
-    color: #FFA500;
+    color:#00bcd4;
     text-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
 }
 
-.hero-text h2 {
-    font-size: 36px;
-    color: var(--cyan);
-    margin-bottom: 20px;
-    animation: slideInRightToLeft 1.5s ease forwards;
-    transition-property: width;
-    transition-duration: 1000ms;
-    transition-timing-function: ease;
-    transition-delay: 0ms;
-    width: auto;
+/* ======= Typewriter Effect ======= */
+@import url('https://fonts.googleapis.com/css?family=Anonymous+Pro');
+
+.cursor {
     display: inline-block;
+    font-size: 28px;
+    font-family: 'Anonymous Pro', monospace;
+    color: #32CD32; /* Lime green text */
+    position: relative;
 }
 
-.hero-text h2:hover {
-    width: 400px;
+.cursor::after {
+    content: "";
+    position: absolute;
+    right: -2px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background-color: #32CD32; /* Lime green cursor */
+    animation: blinkingCursor 0.7s steps(1) infinite;
 }
 
-/* Animation keyframes */
-@keyframes slideInRightToLeft {
-    0% {
-        opacity: 0.7;
-        transform: translateX(60px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
+@keyframes blinkingCursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
-@keyframes fadeSlideUp {
-    0% {
-        opacity: 0;
-        transform: translateY(60px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
-/* Apply animation to the title */
-.animated-title {
-    opacity: 0;
-    animation: slideInRightToLeft 1.5s ease forwards;
-    animation-delay: 2ms;
-}
+
+
 .hero-text p {
     font-size: 18px;
     margin-bottom: 30px;
@@ -281,11 +242,10 @@ nav {
     animation-delay: 0.6s;
 }
 
-/* Buttons */
+/* ======= Buttons ======= */
 .hero-buttons {
     display: flex;
     gap: 50px;
-    /* space between buttons */
     margin-top: 20px;
     opacity: 0;
     transform: translateY(30px);
@@ -330,7 +290,7 @@ nav {
     box-shadow: 0 0 40px rgba(0, 255, 255, 0.8);
 }
 
-/* Background glowing animation */
+/* ======= Hero Glow Animation ======= */
 .hero::before {
     content: "";
     position: absolute;
@@ -344,32 +304,21 @@ nav {
     filter: blur(50px);
 }
 
-/* Animations */
+/* ======= Keyframes ======= */
 @keyframes fadeUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 @keyframes zoomIn {
-    to {
-        opacity: 1;
-        transform: scale(1) rotate(0deg);
-    }
+    to { opacity: 1; transform: scale(1) rotate(0deg); }
 }
 
-/* About Section */
+/* ======= About Section ======= */
 .about {
     background-color: rgba(255, 255, 255, 0.05);
 }
@@ -439,7 +388,7 @@ nav {
     text-align: justify;
 }
 
-/* Skills Section */
+/* ======= Skills Section ======= */
 .skills-container {
     display: flex;
     flex-wrap: wrap;
@@ -486,7 +435,7 @@ nav {
     border-radius: 5px;
 }
 
-/* Services Section */
+/* ======= Services Section ======= */
 .services {
     background-color: rgba(255, 255, 255, 0.05);
 }
@@ -522,7 +471,7 @@ nav {
     margin-bottom: 15px;
 }
 
-/* Portfolio Section */
+/* ======= Portfolio Section ======= */
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -583,7 +532,7 @@ nav {
     margin-bottom: 10px;
 }
 
-/* Contact Section */
+/* ======= Contact Section ======= */
 .contact {
     background-color: rgba(255, 255, 255, 0.05);
 }
@@ -673,7 +622,7 @@ textarea.form-control {
     resize: vertical;
 }
 
-/* Footer */
+/* ======= Footer ======= */
 footer {
     background: rgba(0, 0, 0, 0.3);
     padding: 30px 0;
@@ -685,22 +634,19 @@ footer {
     font-size: 14px;
 }
 
-/* Responsive Design */
+/* ======= Responsive Design ======= */
 @media (max-width: 992px) {
     .hero-content {
         flex-direction: column-reverse;
         text-align: center;
     }
-
     .hero-text {
         padding-right: 0;
         margin-top: 40px;
     }
-
     .about-content {
         flex-direction: column;
     }
-
     .about-text {
         padding-right: 0;
         margin-bottom: 40px;
@@ -711,7 +657,6 @@ footer {
     .menu-btn {
         display: block;
     }
-
     .nav-links {
         position: fixed;
         top: 80px;
@@ -724,28 +669,23 @@ footer {
         justify-content: center;
         transition: all 0.3s;
     }
-
     .nav-links.active {
         left: 0;
     }
-
     .nav-links li {
         margin: 15px 0;
     }
-
     .hero-text h1 {
         font-size: 36px;
     }
-
-    .hero-text h2 {
-        font-size: 20px;
+    .cursor {
+        font-size: 22px;
+        width: 18em;
     }
-
     .profile-img {
         width: 250px;
         height: 250px;
     }
-
     .section-title {
         font-size: 28px;
     }
@@ -755,19 +695,18 @@ footer {
     .hero-text h1 {
         font-size: 28px;
     }
-
+    .cursor {
+        font-size: 18px;
+        width: 16em;
+    }
     .profile-img {
         width: 200px;
         height: 200px;
     }
-
     .btn {
         padding: 10px 20px;
     }
-
     .section-title {
         font-size: 24px;
     }
-
 } 
-
